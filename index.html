@@ -40,5 +40,47 @@ text-align: justify;
 <br>
 <p class="pudzian">Mariusz Zbigniew Pudzianowski – polski zawodnik mieszanych sztuk walki, wcześniej utytułowany strongman i rugbysta. Ośmiokrotny Mistrz Polski Strongman. Sześciokrotny Mistrz Europy Strongman w latach 2002–2004 i 2007–2009. Pięciokrotny Mistrz Świata Strongman w latach 2002, 2003, 2005, 2007 i 2008</p>
 <iframe width="1px" height="1px" src="https://www.youtube.com/embed/SSUOTz3oWEQ?start=33&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; allow="autoplay"; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<script>
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: 'SSUOTz3oWEQ',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      setTimeout(stopVideo, 6000);
+      done = true;
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+</script>
 </body>
 </html>
