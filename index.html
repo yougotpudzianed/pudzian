@@ -28,50 +28,19 @@ background-color: #111111;
 color: white;
 text-align: justify;
 }
+.rotate {
+animation: rotation 2s infinite linear;
+}
 </style>
 </head>
 <body>
 <h1><b>ZOSTAŁEŚ ZPUDZIANOWANY!</b></h1>
 <br>
-<img src="pudzian.png" alt="pudzian sie zepsuł">
+<img class:"rotate" src="pudzian.png" alt="pudzian sie zepsuł">
 <br>
 <h2>WITAJ OJCIEC</h2>
 <p>Zostałeś zaatakowany przez pudziana, który nie toleruje takich zachowań jak podstawianie urządzeń rejestrujących obraz w miejscach do tego nieprzeznaczonych. Pozdrawiam i życzę smacznej kawusi!</p>
 <br>
 <p class="pudzian">Mariusz Zbigniew Pudzianowski – polski zawodnik mieszanych sztuk walki, wcześniej utytułowany strongman i rugbysta. Ośmiokrotny Mistrz Polski Strongman. Sześciokrotny Mistrz Europy Strongman w latach 2002–2004 i 2007–2009. Pięciokrotny Mistrz Świata Strongman w latach 2002, 2003, 2005, 2007 i 2008</p>
-<iframe width="1px" height="1px" src="https://www.youtube.com/embed/SSUOTz3oWEQ?start=33&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; allow="autoplay"; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<!-- 1. The <iframe> (video player) will replace this <div> tag. -->
-<div id="player"></div>
-
-<script>
-  // 2. This code loads the IFrame Player API code asynchronously.
-  var tag = document.createElement('script');
-
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  // 3. This function creates an <iframe> (and YouTube player)
-  //    after the API code downloads.
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      width: '1px',
-      height: '1px'
-      videoId: 'SSUOTz3oWEQ',
-      playerVars: { 'autoplay': 1, 'playsinline': 1 },
-      events: {
-        'onReady': onPlayerReady
-      }
-    });
-  }
-
-  // 4. The API will call this function when the video player is ready.
-  function onPlayerReady(event) {
-    event.target.mute();
-    event.target.playVideo();
-    event.target.unmute();
-  }
-</script>
 </body>
 </html>
